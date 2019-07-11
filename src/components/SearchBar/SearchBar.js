@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, FormControl, Container, Row, Col,InputGroup } from 'react-bootstrap';
+import {Button, FormControl, InputGroup } from 'react-bootstrap';
 
 const SearchBar = ({inputValue,onChange}) => {
 
