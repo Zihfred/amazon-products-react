@@ -20,7 +20,7 @@ class Products extends React.Component {
   handleChangeInput = e => {
     const value = e.target.value;
     let category;
-    if (this.state.category === "undefined") {
+    if (this.state.category == "undefined") {
       category = "";
     } else category = this.state.category;
     this.props.history.push(
@@ -72,7 +72,7 @@ class Products extends React.Component {
       oneProduct => oneProduct["bsr_category"] === selectedCategory
     );
     this.setState(
-      { filteredProducts: products, category: selectedCategory },
+      { filteredProducts: products, category: selectedCategory,searchInputText:'' },
       () => {
         return this.filterAfterLoadingData(
           this.state.searchInputText,
@@ -83,33 +83,25 @@ class Products extends React.Component {
   };
 
   componentDidMount() {
-    const queryParams = this.props.location.search
-      .slice(1)
-      .split("&")
-      .reduce((res, p) => {
-        const [key, val] = p.split("=");
-        res[key] = val;
-        return res;
-      }, {});
+    const queryParams = queryString.parse(this.props.location.search);
 
     API.getProducts()
       .then(products => {
         let replacedProducts = products.products.map(item => {
           return {
             ...item,
-            "bsr_category": item["bsr_category"].replace(/\&/g, "and")
+            bsr_category: item["bsr_category"].replace(/\&/g, "and")
           };
         });
 
-        let categories = replacedProducts.map(item => item["bsr_category"]);
-        categories = [...new Set(categories)];
+        let categories = [...new Set(replacedProducts.map(item => item["bsr_category"]))];
 
         this.setState({
           products: replacedProducts,
           filteredProducts: replacedProducts,
           categories: categories,
           category: decodeURI(queryParams.category) || null,
-          searchInputText: queryParams.search || ""
+          searchInputText: queryParams.search || ''
         });
       })
       .then(() => {
@@ -136,11 +128,9 @@ class Products extends React.Component {
             />
           </Col>
         </Row>
-        <Row>
-          <Col>
             <ProductList products={this.state.filteredProducts} />
-          </Col>
-        </Row>
+
+
       </Container>
     );
   }

@@ -6,10 +6,10 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 const ProductItem = ({name, price, currency, img, bsr_category}) => {
     console.log();
     return <Jumbotron>
-        <h2>{name}</h2>
-        <h2>{bsr_category}</h2>
+        <p>Category: {bsr_category}</p>
         <Image src={img} alt={img} rounded className={s.image}/>
-        <h2>{`Price: ${price}${currency}`}</h2>
+        <p>{name}</p>
+        <h3>{`Price: ${price} ${currency}`}</h3>
     </Jumbotron>
 };
 
