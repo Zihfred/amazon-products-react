@@ -6,7 +6,6 @@ import Menu from "../../components/Menu/Menu";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import API from "../../API/API";
 import queryString from "query-string";
 import { connect } from "react-redux";
 import {
@@ -14,7 +13,7 @@ import {
   filterProducts,
   selectCategory
 } from "../../actions/Products";
-import spinnerImg from "../../img/spinner.gif";
+import Spinner from "../../components/Spinner/Spinner";
 
 class Products extends React.Component {
   state = {
@@ -32,7 +31,7 @@ class Products extends React.Component {
     this.props.history.push(
       `?search=${value}&category=${encodeURIComponent(category)}`
     );
-    
+
     this.setState({ searchInputText: value });
     this.props.filterProducts(value, this.props.category);
   };
@@ -43,7 +42,7 @@ class Products extends React.Component {
     );
 
     this.props.selectCategory(selectedCategory);
-    this.props.filterProducts(this.state.searchInputText);
+    this.props.filterProducts("",selectedCategory);
     this.setState({ searchInputText: "" });
   };
 
@@ -51,8 +50,11 @@ class Products extends React.Component {
     const queryParams = queryString.parse(this.props.location.search);
 
     let searchText = queryParams.search;
+
     if (!searchText) searchText = null;
-    let category = decodeURI(queryParams.category) === "undefined" ? null : decodeURI(queryParams.category);
+    let category = decodeURI(queryParams.category) === "undefined"
+      ? null
+      : decodeURI(queryParams.category);
 
     this.props.getProducts(searchText, category);
     this.setState({ searchInputText: queryParams.search || "" });
@@ -67,11 +69,7 @@ class Products extends React.Component {
               onChange={this.handleChangeInput}
               inputValue={this.state.searchInputText}
             />
-            {this.props.loading && (
-              <div className="spinnerWrapper">
-                <img src={spinnerImg} alt="" />
-              </div>
-            )}
+            <Spinner isLoading={this.props.loading} />
             <Menu
               handleClickMenu={this.handleClickMenu}
               inputText={this.state.searchInputText}
@@ -79,7 +77,6 @@ class Products extends React.Component {
             />
           </Col>
         </Row>
-
         <ProductList />
       </Container>
     );

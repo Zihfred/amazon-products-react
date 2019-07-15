@@ -11,6 +11,10 @@ function* fetchProducts(action) {
     }
 }
 
+function* filterProducts() {
+
+}
+
 function *actionWatcher() {
     yield takeLatest('GET_PRODUCTS', fetchProducts )
 }
