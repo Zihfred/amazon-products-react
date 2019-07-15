@@ -32,3 +32,21 @@ code {
 .row-flex > div[class*="col-"] {
   margin: -0.2px; /* hack adjust for wrapping */
 }
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinnerWrapper{
+  display: flex;
+  justify-content: center;
+}

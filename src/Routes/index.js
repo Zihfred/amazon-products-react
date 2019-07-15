@@ -1,6 +1,6 @@
 import { BrowserRouter, Route } from "react-router-dom";
 import React from "react";
-import Products from "./Products/Products";
+import AppContainer from "../View/AppContainer";
 
 const routes = {
   products: "/"
@@ -8,7 +8,7 @@ const routes = {
 
 const Router = () => (
   <BrowserRouter>
-    <Route path={routes.products} component={Products} />
+    <Route path={routes.products} component={AppContainer} />
   </BrowserRouter>
 );
 

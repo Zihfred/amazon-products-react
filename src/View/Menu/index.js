@@ -30,7 +30,7 @@ class Menu extends React.Component {
 }
 
 const mapStateToProps = (state) =>({
-    products: state.products,
+    products: state.products.products,
 });
 
 export default connect(mapStateToProps,null)(Menu);

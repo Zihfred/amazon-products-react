@@ -1,9 +1,8 @@
 import React from 'react';
-import ProductItem from '../ProductItem/ProductItem';
+import ProductItem from './ProductItem';
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import {connect} from "react-redux";
-
 
 
 const ProductList = (props) =>{
@@ -15,7 +14,6 @@ const ProductList = (props) =>{
 };
 
 const mapStateToProps = (state) =>({
-    filteredProducts: state.filteredProducts,
+    filteredProducts: state.products.filteredProducts,
 });
-
 export default connect(mapStateToProps,null)(ProductList);
