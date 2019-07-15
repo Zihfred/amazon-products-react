@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8da601de-9c6a-42ea-85e7-e5268bae66cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/View/AppContainer/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/AppContainer/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/AppContainer/operations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/AppContainer/reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/configureStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ProductList/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Menu/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductItem/ProductItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ProductList/ProductItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductItem/ProductItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ProductList/ProductItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductsList/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ProductList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchBar/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SearchBar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Spinner/Spinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/common/Spinner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/filterProducts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routes/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/products.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/rootSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/sagas/rootSaga.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/Products/Products.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,11 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -199,8 +177,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="456" />
-    <option name="y" value="326" />
+    <option name="x" value="222" />
+    <option name="y" value="252" />
     <option name="width" value="1233" />
     <option name="height" value="696" />
   </component>
@@ -226,12 +204,6 @@
               <item name="amazon-react" type="b2602c69:ProjectViewProjectNode" />
               <item name="amazon-react" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amazon-react" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amazon-react" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -298,10 +270,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79383000" />
+    <option name="totallyTimeSpent" value="80088000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="456" y="326" width="1233" height="696" extended-state="0" />
+    <frame x="222" y="252" width="1233" height="696" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26945606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -477,16 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/Products.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -563,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/configureStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/sagas/rootSaga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -608,13 +564,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/configureStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
         </state>
       </provider>
     </entry>
