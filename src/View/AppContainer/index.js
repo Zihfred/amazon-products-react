@@ -1,104 +1,121 @@
 import React from "react";
+import { connect } from "react-redux";
+import queryString from "query-string";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+
 import ProductList from "../ProductList";
 import SearchBar from "../SearchBar";
 import Menu from "../Menu";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import queryString from "query-string";
-import { connect } from "react-redux";
 import {
-    getProducts,
-    filterProducts,
-    selectCategory
-} from "./actions";
+  getProducts,
+  filterProducts,
+  selectCategory
+} from "../../ducks/appContainerDuck";
 import Spinner from "../common/Spinner";
+import PropTypes from "prop-types";
 
 class AppContainer extends React.Component {
-    state = {
-        searchInputText: ""
-    };
+  state = {
+    searchInputText: ""
+  };
 
-    handleChangeInput = e => {
-        const value = e.target.value;
+  getProductsAndURLParams() {
+    const queryParams = queryString.parse(this.props.location.search);
 
-        let category;
-        if (this.props.category == "undefined") {
-            category = "";
-        } else category = this.props.category;
+    let searchText = queryParams.search;
 
-        this.props.history.push(
-            `?search=${value}&category=${encodeURIComponent(category)}`
-        );
+    if (!searchText) searchText = "";
+    console.log(queryParams.category);
+    let category = queryParams.category
+      ? decodeURI(queryParams.category)
+      : null;
 
-        this.setState({ searchInputText: value });
-        this.props.filterProducts(value, this.props.category);
-    };
+    this.props.getProducts(searchText, category);
+    this.setState({ searchInputText: queryParams.search || "" });
+  }
 
-    handleClickMenu = selectedCategory => {
-        this.props.history.push(
-            `?search=${this.state.searchInputText}&category=${selectedCategory}`
-        );
+  handleChangeInput = e => {
+    const value = e.target.value;
 
-        this.props.selectCategory(selectedCategory);
-        this.props.filterProducts("",selectedCategory);
-        this.setState({ searchInputText: "" });
-    };
+    let category;
 
-    componentDidMount() {
-        const queryParams = queryString.parse(this.props.location.search);
+    if (this.props.category) {
+      category = this.props.category;
+    } else category = "";
 
-        let searchText = queryParams.search;
+    this.props.history.push(
+      `?search=${value}&category=${encodeURIComponent(category)}`
+    );
 
-        if (!searchText) searchText = null;
-        let category = decodeURI(queryParams.category) === "undefined"
-            ? null
-            : decodeURI(queryParams.category);
+    this.setState({ searchInputText: value });
+    this.props.filterProducts(value, this.props.category);
+  };
 
-        this.props.getProducts(searchText, category);
-        this.setState({ searchInputText: queryParams.search || "" });
+  handleClickMenu = selectedCategory => {
+    console.log(selectedCategory);
+
+    this.props.history.push(
+      `?search=${this.state.searchInputText}&category=${selectedCategory}`
+    );
+
+    this.props.selectCategory(selectedCategory);
+    this.props.filterProducts(this.state.searchInputText, selectedCategory);
+  };
+
+  componentDidMount() {
+    this.getProductsAndURLParams();
+  }
+
+  render() {
+    const { loading } = this.props;
+
+    if (loading) {
+      return <Spinner isLoading={loading} />;
     }
 
-    render() {
-        console.log(this.props)
-        if(this.props.loading){
-            return  <Spinner isLoading={this.props.loading} />
-        }
-        return (
-
-            <Container className="App">
-                <Row>
-                    <Col>
-                        <SearchBar
-                            onChange={this.handleChangeInput}
-                            inputValue={this.state.searchInputText}
-                        />
-
-                        <Menu
-                            handleClickMenu={this.handleClickMenu}
-                        />
-                    </Col>
-                </Row>
-                <ProductList />
-            </Container>
-        );
-    }
+    return (
+      <Container className="App">
+        <Row>
+          <Col>
+            <SearchBar
+              onChange={this.handleChangeInput}
+              inputValue={this.state.searchInputText}
+            />
+            <Menu handleClickMenu={this.handleClickMenu} />
+          </Col>
+        </Row>
+        <ProductList />
+      </Container>
+    );
+  }
 }
 
+AppContainer.propTypes = {
+  products: PropTypes.array,
+  filteredProducts: PropTypes.array,
+  loading: PropTypes.bool,
+  category: PropTypes.string,
+  getProducts: PropTypes.func,
+  filterProducts: PropTypes.func,
+  selectCategory: PropTypes.func
+};
+
 const mapStateToProps = state => ({
-    products: state.products.products,
-    filteredProducts: state.products.products,
-    loading: state.products.loading,
-    category: state.products.category
+  products: state.products.products,
+  filteredProducts: state.products.products,
+  loading: state.products.loading,
+  category: state.products.category
 });
 
 const mapDispatchToProps = {
-    getProducts: getProducts,
-    filterProducts: filterProducts,
-    selectCategory: selectCategory
+  getProducts: getProducts,
+  filterProducts: filterProducts,
+  selectCategory: selectCategory
 };
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(AppContainer);

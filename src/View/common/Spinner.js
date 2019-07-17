@@ -1,14 +1,16 @@
-import React from 'react';
-import spinnerImg from "../../img/spinner.gif";
+import React from "react";
+import spinnerImg from "./img/spinner.gif";
+import PropTypes from "prop-types";
 
-const Spinner= ({isLoading}) => {
-  if (isLoading) return (
+const Spinner = ({ isLoading }) => {
+  return isLoading ? (
     <div className="spinnerWrapper">
       <img src={spinnerImg} alt="" />
     </div>
-  );
-
-  return null;
+  ) : null;
 };
 
+Spinner.propTypes = {
+  isLoading: PropTypes.bool
+}
 export default Spinner;

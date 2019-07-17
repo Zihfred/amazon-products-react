@@ -46,7 +46,11 @@ code {
   }
 }
 
-.spinnerWrapper{
+.spinnerWrapper {
   display: flex;
   justify-content: center;
+}
+
+a {
+  cursor: pointer;
 }

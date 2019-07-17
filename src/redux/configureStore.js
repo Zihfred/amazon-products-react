@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import  {logger} from 'redux-logger';
-import products from '../View/AppContainer/reducers'
+import products from '../ducks/appContainerDuck'
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./sagas/rootSaga";
 
@@ -9,7 +9,7 @@ const reducer = combineReducers({
 });
 
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 
 export default function configureStore() {

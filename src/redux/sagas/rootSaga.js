@@ -6,7 +6,6 @@ function* fetchProducts(action) {
     const json = yield API.getProducts();
     yield put({type: "PRODUCTS_RECEIVED", payload: json});
     if(action.payload.category || action.payload.searchText){
-        console.log(action.payload);
         yield put({type: "FILTER_PRODUCTS",payload:{searchText,category}})
     }
 }

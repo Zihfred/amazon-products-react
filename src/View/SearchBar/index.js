@@ -1,22 +1,28 @@
-import React from 'react'
-import {Button, FormControl, InputGroup } from 'react-bootstrap';
+import React from "react";
+import PropTypes from 'prop-types';
 
-const SearchBar = ({inputValue,onChange}) => {
+import { Button, FormControl, InputGroup } from "react-bootstrap";
 
-    return (
-            <InputGroup >
-                <FormControl
-                    type="text"
-                    aria-label='Username'
-                    placeholder='Search...'
-                    value={inputValue}
-                    onChange={onChange}
-                />
-                <InputGroup.Append>
-                    <Button type='button' onClick={onChange} variant="primary">Search</Button>
-                </InputGroup.Append>
-            </InputGroup>
-    )
+const SearchBar = ({ inputValue, onChange }) => (
+  <InputGroup>
+    <FormControl
+      type="text"
+      aria-label="Username"
+      placeholder="Search..."
+      value={inputValue}
+      onChange={onChange}
+    />
+    <InputGroup.Append>
+      <Button type="button" variant="primary">
+        Search
+      </Button>
+    </InputGroup.Append>
+  </InputGroup>
+);
+
+SearchBar.propTypes = {
+  inputValue: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default SearchBar;
